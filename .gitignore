@@ -1,0 +1,17 @@
+.env
+*.env
+*token*
+*secret*
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+.DS_Store
+*.mp4
+*.mov
+*.wav
+*.mp3
+# large data — keep samples only
+*.zip filter=keep
+
