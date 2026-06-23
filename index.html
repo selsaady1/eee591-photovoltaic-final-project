@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Photovoltaic Energy Conversion — Saif Elsaady</title><style>
+:root{--bg:#0d1117;--card:#161b22;--bd:#30363d;--fg:#e6edf3;--mut:#8b949e;--ac:#58a6ff;--mar:#8c1d40}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+a{color:var(--ac);text-decoration:none}.wrap{max-width:860px;margin:0 auto;padding:24px}
+.top{padding:14px 24px;border-bottom:1px solid var(--bd);font-size:.9rem}
+.hero{padding:40px 24px 8px;max-width:860px;margin:0 auto}
+.cat{display:inline-block;background:var(--mar);color:#fff;font-size:.72rem;padding:3px 10px;border-radius:999px;letter-spacing:.04em}
+h1{margin:.4rem 0 .3rem;font-size:2rem}.tag{color:var(--mut);font-size:1.1rem;margin:0 0 14px}
+.metric{display:inline-block;background:#13241a;border:1px solid #1f6f43;color:#3fb950;padding:6px 14px;border-radius:8px;font-weight:700;margin:6px 0}
+.hero-img{margin:18px 0;border:1px solid var(--bd);border-radius:12px;overflow:hidden;max-height:380px;display:flex;justify-content:center;background:#0a0d12}
+.hero-img img{max-width:100%;object-fit:contain}
+h2{font-size:1.15rem;border-left:4px solid var(--mar);padding-left:10px;margin-top:30px}
+ul{padding-left:20px}li{margin:6px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{background:var(--card);border:1px solid var(--bd);border-radius:999px;padding:4px 12px;font-size:.85rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0}
+.btn{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:10px 16px;font-weight:600}
+.btn:hover{border-color:var(--ac)}.btn.primary{background:var(--ac);color:#06101f;border-color:var(--ac)}
+footer{color:var(--mut);font-size:.82rem;border-top:1px solid var(--bd);margin-top:36px;padding:24px;text-align:center}
+</style></head><body>
+<div class="top"><a href="https://selsaady1.github.io/portfolio/">← Portfolio</a> · <a href="https://github.com/selsaady1">github.com/selsaady1</a></div>
+<div class="hero"><span class="cat">Energy &amp; Power</span><h1>Photovoltaic Energy Conversion</h1>
+<p class="tag">Hourly techno-economic model comparing net metering vs. net billing for residential solar-plus-storage</p><div class="metric">51.3% annual bill reduction under net metering ($1,832.55 to $892.78)</div><div class="hero-img"><img src="images/preview.png" alt=""></div></div>
+<div class="wrap">
+<h2>Overview</h2><p>An EEE 591 (Photovoltaic Energy Conversion, ASU) final project that models a 5 kW residential PV system paired with a 14 kWh battery and evaluates its economics under two utility billing policies: net metering and net billing. Using an 8,760-hour (full-year) simulation with Salt River Project time-of-use rates, it quantifies annual electricity costs, net present value, levelized cost of energy, and payback period to assess whether home solar-plus-storage is financially viable under current Arizona rate structures.</p>
+<h2>Key Achievements</h2><ul><li>Built a full 8,760-hour simulation in Python: time-of-use rate construction across three seasons, an hour-by-hour battery dispatch model (10-100% SOC, 95% charge/discharge efficiency), and grid import/export accounting</li><li>Implemented financial-engineering methods from scratch: NPV discounting, capital-recovery annualization, and a geometric-series NPV for O&amp;M growth, including a 7-year battery replacement schedule over a 25-year horizon</li><li>Found net metering reduces the $1,832.55 baseline annual bill to $892.78 (15.1-year payback) vs. $920.72 for net billing (15.6-year payback), with both yielding negative 25-year NPV (-$7,572 and -$8,059) at a 3% discount rate</li><li>Ran a battery-cost sensitivity analysis (±25% around $300/kWh) showing each $75/kWh change shifts NPV by ~$3,162, and estimated net metering would need battery costs below ~$150/kWh to reach a positive NPV</li><li>Generated the figure set (load profile, summer/winter energy flows, battery SOC, bill and economics comparisons) that supports the IEEE-style report</li></ul>
+<h2>Approach</h2><p>The analysis was implemented in Python with NumPy and Pandas for the hourly simulation and Matplotlib for figures. The pipeline loads 8,760-hour load and PV-production CSVs, builds a time-of-use rate array from SRP seasonal/peak definitions, dispatches the battery hour-by-hour to maximize self-consumption, then computes annual bills under each policy and runs the financial model (NPV, annualized cost, LCOE, payback) plus a battery-cost sensitivity sweep. Results are written up in an IEEE-style report with abstract, methodology, results, and conclusion.</p>
+<h2>Tools &amp; Technologies</h2><div class="chips"><span class="chip">Python</span><span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">CSV (8760-hour load/PV data)</span></div>
+<h2>Results</h2><p>Both policies cut the annual bill by roughly 49-51% (net metering to $892.78, net billing to $920.72) but neither is economically viable under current Arizona rates: 25-year net NPV is -$7,572 (net metering) and -$8,059 (net billing), payback is 15.1-15.6 years, and LCOE is $0.0956/kWh; net metering holds a ~$487 lifetime NPV advantage. Full details are in docs/EEE591_Project_Paper-1.docx.pdf.</p>
+<div class="btns"><a class="btn primary" href="https://github.com/selsaady1/eee591-photovoltaic-final-project">⌨ View source on GitHub</a><a class="btn" href="docs/EEE591_Project_Paper-1.docx.pdf">📄 View deliverable</a><a class="btn" href="https://selsaady1.github.io/portfolio/">All projects</a></div>
+</div>
+<footer>Saif Elsaady — Engineering Portfolio · built from real project deliverables</footer>
+</body></html>

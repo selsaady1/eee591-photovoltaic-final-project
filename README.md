@@ -1,21 +1,40 @@
-# Photovoltaic Energy Conversion — Final Project
+# Photovoltaic Energy Conversion
 
-> Coursework project from **Fall 2025 EEE 465/591: Photovoltaic Energy Conversion** (2025 Fall C).
+> Hourly techno-economic model comparing net metering vs. net billing for residential solar-plus-storage
 
-**Course:** Fall 2025 EEE 465/591: Photovoltaic Energy Conversion — 2025 Fall C  ·  **Area:** energy, software
+![Python](https://img.shields.io/badge/Python-0a7?style=flat-square) ![NumPy](https://img.shields.io/badge/NumPy-0a7?style=flat-square) ![Pandas](https://img.shields.io/badge/Pandas-0a7?style=flat-square) ![Matplotlib](https://img.shields.io/badge/Matplotlib-0a7?style=flat-square) ![CSV (8760-hour load/PV data)](https://img.shields.io/badge/CSV_%288760--hour_load/PV_data%29-0a7?style=flat-square) 
+
+### 🌐 Live project page → **https://selsaady1.github.io/eee591-photovoltaic-final-project/**
 
 ## Overview
-This repository contains my submitted deliverables for the project below. The course assignment brief (verbatim, abbreviated):
+An EEE 591 (Photovoltaic Energy Conversion, ASU) final project that models a 5 kW residential PV system paired with a 14 kWh battery and evaluates its economics under two utility billing policies: net metering and net billing. Using an 8,760-hour (full-year) simulation with Salt River Project time-of-use rates, it quantifies annual electricity costs, net present value, levelized cost of energy, and payback period to assess whether home solar-plus-storage is financially viable under current Arizona rate structures.
 
-> Final Project EEE 465_591.docx - These are just suggestions, you are encouraged to select any alternative topic as long as it relates to photovoltaics in some way! You are welcome to work alone or in groups of up to 4 people for this project! Sign up for final presentation times (and to upload your presentation itself) here- https://docs.google.com/spreadsheets/d/1T_-4RJbTYBrqHLA6bU3e-eIvjwTawuSl2ixEbZmHBK8/edit?usp=sharing Final Presentation Grading Guidelines.docx   Formatting Guidelines for Final Report (591) - Aim for sections that include: abstract, introduction, results/discussion (with figures), conclusion, and references. Total length should be 2 pages or longer.   Some more informat
+**Highlight:** 51.3% annual bill reduction under net metering ($1,832.55 to $892.78)
 
-## Tools & Tech
-- PDF report
+## Key Achievements
+- Built a full 8,760-hour simulation in Python: time-of-use rate construction across three seasons, an hour-by-hour battery dispatch model (10-100% SOC, 95% charge/discharge efficiency), and grid import/export accounting
+- Implemented financial-engineering methods from scratch: NPV discounting, capital-recovery annualization, and a geometric-series NPV for O&M growth, including a 7-year battery replacement schedule over a 25-year horizon
+- Found net metering reduces the $1,832.55 baseline annual bill to $892.78 (15.1-year payback) vs. $920.72 for net billing (15.6-year payback), with both yielding negative 25-year NPV (-$7,572 and -$8,059) at a 3% discount rate
+- Ran a battery-cost sensitivity analysis (±25% around $300/kWh) showing each $75/kWh change shifts NPV by ~$3,162, and estimated net metering would need battery costs below ~$150/kWh to reach a positive NPV
+- Generated the figure set (load profile, summer/winter energy flows, battery SOC, bill and economics comparisons) that supports the IEEE-style report
+
+## Approach
+The analysis was implemented in Python with NumPy and Pandas for the hourly simulation and Matplotlib for figures. The pipeline loads 8,760-hour load and PV-production CSVs, builds a time-of-use rate array from SRP seasonal/peak definitions, dispatches the battery hour-by-hour to maximize self-consumption, then computes annual bills under each policy and runs the financial model (NPV, annualized cost, LCOE, payback) plus a battery-cost sensitivity sweep. Results are written up in an IEEE-style report with abstract, methodology, results, and conclusion.
+
+## Tools & Technologies
 - Python
+- NumPy
+- Pandas
+- Matplotlib
+- CSV (8760-hour load/PV data)
 
 ## Repository Structure
 ```
+.gitignore
+LICENSE
+README.md
 data/Elsaady_MiniProject1_EEE598.zip
+data/README.md
 docs/EEE591_PracticeProblemSet1_Elsaady.pdf
 docs/EEE591_PraticeProblemSet4Elsaady.pdf
 docs/EEE591_Project_Paper-1.docx.pdf
@@ -35,18 +54,14 @@ src/Elsaadycell_simulator_F24-3.py
 src/MiniProject1_Elsaady.py
 ```
 
-## Exploring the Code
-- Python scripts are in `src/`.
-- _Not independently re-run here; provided as submitted._
-
 ## Results
-See the report(s)/presentation(s) in `docs/` — e.g. `docs/EEE591_Project_Paper-1.docx.pdf`.
+Both policies cut the annual bill by roughly 49-51% (net metering to $892.78, net billing to $920.72) but neither is economically viable under current Arizona rates: 25-year net NPV is -$7,572 (net metering) and -$8,059 (net billing), payback is 15.1-15.6 years, and LCOE is $0.0956/kWh; net metering holds a ~$487 lifetime NPV advantage. Full details are in docs/EEE591_Project_Paper-1.docx.pdf.
 
-## Preview
-![preview.png](images/preview.png)
+## Deliverable
+See [`docs/EEE591_Project_Paper-1.docx.pdf`](docs/EEE591_Project_Paper-1.docx.pdf).
 
 ## License
-Released under the MIT License — see `LICENSE`.
+MIT — see [`LICENSE`](LICENSE).
 
 ---
-_Part of my engineering coursework portfolio. Deliverables only; routine homework, quizzes, and exams are intentionally excluded._
+_Part of [Saif Elsaady's engineering portfolio](https://selsaady1.github.io/portfolio/). Deliverables only — routine homework/quizzes/exams excluded._
