@@ -4,10 +4,14 @@
 
 ![Python](https://img.shields.io/badge/Python-0a7?style=flat-square) ![NumPy](https://img.shields.io/badge/NumPy-0a7?style=flat-square) ![Pandas](https://img.shields.io/badge/Pandas-0a7?style=flat-square) ![Matplotlib](https://img.shields.io/badge/Matplotlib-0a7?style=flat-square) ![CSV (8760-hour load/PV data)](https://img.shields.io/badge/CSV_%288760--hour_load/PV_data%29-0a7?style=flat-square) 
 
+![Photovoltaic Energy Conversion](images/fig1.png)
+
 ### 🌐 Live project page → **https://selsaady1.github.io/eee591-photovoltaic-final-project/**
 
 ## Overview
 An EEE 591 (Photovoltaic Energy Conversion, ASU) final project that models a 5 kW residential PV system paired with a 14 kWh battery and evaluates its economics under two utility billing policies: net metering and net billing. Using an 8,760-hour (full-year) simulation with Salt River Project time-of-use rates, it quantifies annual electricity costs, net present value, levelized cost of energy, and payback period to assess whether home solar-plus-storage is financially viable under current Arizona rate structures.
+
+**Highlight:** 51.3% annual bill reduction under net metering ($1,832.55 to $892.78)
 
 **Highlight:** 51.3% annual bill reduction under net metering ($1,832.55 to $892.78)
 
@@ -28,9 +32,16 @@ The analysis was implemented in Python with NumPy and Pandas for the hourly simu
 - Matplotlib
 - CSV (8760-hour load/PV data)
 
+## Gallery
+![figure](images/fig2.png)
+![figure](images/fig3.png)
+![figure](images/fig4.png)
+![figure](images/fig5.png)
+
 ## Repository Structure
 ```
 .gitignore
+.nojekyll
 LICENSE
 README.md
 data/Elsaady_MiniProject1_EEE598.zip
@@ -46,7 +57,14 @@ docs/Elsaady_PracticeProblem8.pdf
 docs/Elsaady_Practice_Problem7.pdf
 docs/Mini_Project_1_-_Solar_Radiation_Analysis.pdf
 docs/Residential-Grid-Connected-PV-Battery-System-Net-Metering-vs-Net-Billi
+images/fig1.png
+images/fig2.png
+images/fig3.png
+images/fig4.png
+images/fig5.png
+images/fig6.png
 images/preview.png
+index.html
 src/Elsaady_FinalProject_EEE591.py
 src/Elsaady_MiniProject4.py
 src/Elsaady_Project_3_code_snippet_F21.py
